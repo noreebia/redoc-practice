@@ -9,35 +9,8 @@
 </head>
 
 <body>
-    <!-- <redoc id='redoc'></redoc> -->
-    <div id = 'redoc'></div>
+    <redoc spec-url='http://13.125.155.10:8080/v2/api-docs'></redoc>
     <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"> </script>
-
-    <script>
-        fetch('http://13.125.155.10:8080/v2/api-docs')
-        // fetch('http://54.180.118.123:8080/v2/api-docs')
-      .then(res => res.json())
-      .then(spec => {
-        Redoc.init(spec, {
-        // options go here (e.g. pathInMiddlePanel)
-        }, document.getElementById('redoc'));
-      });
-</script>
-
-    <!-- <script>
-        Redoc.init('http://15.164.165.243:8080/v2/api-docs', {
-            scrollYOffset: 60,
-            hideDownloadButton: true
-        }, document.getElementById('redoc'))
-    </script> -->
-
-    <!-- <script>
-        Redoc.init('https://raw.githubusercontent.com/webhookrelay/swagger-webhookrelay/master/openapi.yaml', {
-            scrollYOffset: 60,
-            hideDownloadButton: true
-        }, document.getElementById('redoc'))
-    </script> -->
-
 </body>
 
 </html>
