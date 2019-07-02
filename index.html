@@ -9,8 +9,48 @@
 </head>
 
 <body>
-    <redoc spec-url='http://13.125.155.10:8080/v2/api-docs'></redoc>
+    <!-- <redoc id='redoc'></redoc> -->
+    <div id = 'redoc'></div>
     <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
+    <script>
+        async function asyncFunction(){
+            let a = {};
+
+            // let response = await fetch('http://13.125.155.10:8080/v2/api-docs');
+            // console.log(await response.json());
+            // Object.assign(a, await response.json());
+            // response = await fetch('http://13.125.155.10:8080/v2/api-docs');
+            // _.merge(a, await response.json());
+
+
+            response = await fetch('http://did-manager-956620177.ap-northeast-2.elb.amazonaws.com/v2/api-docs');
+            _.merge(a, await response.json());
+            // Object.assign(a, await response.json());
+
+            // response = await fetch('http://lb-did-email-dev-1373618001.ap-northeast-2.elb.amazonaws.com/v2/api-docs');
+            // Object.assign(a, response.json());
+            response = await fetch('http://lb-did-email-dev-1373618001.ap-northeast-2.elb.amazonaws.com/v2/api-docs');
+            _.merge(a, await response.json());
+
+
+            console.log(a);
+            Redoc.init(a, {
+            }, document.getElementById('redoc'));
+        }
+        asyncFunction();
+    //     let a = {};
+    //     fetch('http://13.125.155.10:8080/v2/api-docs')
+    //   .then(res => res.json())
+    //   .then(json => Object.assign(a, json))
+    //   .then()
+
+    //   .then(spec => {
+    //     Redoc.init(spec, {
+    //     }, document.getElementById('redoc'));
+    //   });
+</script>
 </body>
 
-</html>
+</html> 
